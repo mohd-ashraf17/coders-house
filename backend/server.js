@@ -13,11 +13,6 @@ app.use(cookieParser())
 //     origin: ['http://localhost:5173']
 // }
 // app.use(cors(corsOption))
-app.use((req, res, next) =>{
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type,Accept, Authortization');  
-    res.setHeader('Acces-Control-Allow-Methods','GET, POST, PATCH, DELETE');
-});
 app.use(cors({ credentials: 'true', origin: ['https://coders-house.vercel.app', 'https://coders-house.vercel.app'] }));
 app.use(express.json({ limit: '10mb' }))
 app.use(Router)
