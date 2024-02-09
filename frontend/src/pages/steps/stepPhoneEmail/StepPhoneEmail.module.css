@@ -1,0 +1,21 @@
+.buttonRapper{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.button{
+    width: 60px;
+    height: 60px;
+    background-color: #262626;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.button:last-child{
+    margin-left: 20px;
+}
+.active{
+    background-color: #0077ff;
+}

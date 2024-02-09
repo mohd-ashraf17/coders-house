@@ -1,0 +1,57 @@
+.card {
+    background: #1D1D1D;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.speackers {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+}
+
+.names span {
+    padding-bottom: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.avatarImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #20df20;
+    position: absolute;
+    background: #1d1d1d;
+    top: 0;
+    left: 0;
+}
+
+.avatarImage:last-child {
+    top: 20px;
+    left: 20px;
+}
+
+.names {
+    margin-left: 100px;
+}
+
+.peopleCount {
+    text-align: right;
+}
+
+.peopleCount span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.singleSpeacker .avatar img {
+    position: initial;
+}
+
+.singleSpeacker .names {
+    margin-left: 20px;
+}

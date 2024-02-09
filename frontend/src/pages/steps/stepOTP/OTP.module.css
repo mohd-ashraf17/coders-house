@@ -1,0 +1,7 @@
+.cardRapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6rem;
+    /* composes: cardRapper from '../../Home/Home.module.css' */
+}
