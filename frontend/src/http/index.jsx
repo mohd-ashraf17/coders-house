@@ -4,6 +4,7 @@ const api = axios.create({
   // withCredentials: true,
   baseURL: 'https://coders-house.vercel.app',
   headers: {
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': '*',
     "Content-Type": "application/json",
     Accept: "application/json",
