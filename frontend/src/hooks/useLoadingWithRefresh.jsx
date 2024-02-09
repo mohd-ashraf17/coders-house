@@ -9,7 +9,7 @@ export const useLoadingWithRefresh = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get("/api/refresh");
+        const { data } = await axios.get("https://coders-house.vercel.app/api/refresh");
         dispatch(setAuth(data));
         setLoading(false);
       } catch (err) {

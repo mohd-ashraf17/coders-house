@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:5500",
+        target: "https://coders-house.vercel.app",
         changeOrigin: true,
         secure: false,
       },
