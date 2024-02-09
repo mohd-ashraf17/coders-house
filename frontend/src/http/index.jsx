@@ -5,12 +5,13 @@ const api = axios.create({
   baseURL: 'https://coders-house.vercel.app',
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': '*',
     "Content-Type": "application/json",
     Accept: "application/json",
   },
+  withCredentials: true,
+  credentials: 'same-origin',
 });
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 // all endpoint
 export const sendOtp = (data) => api.post("https://coders-house.vercel.app/api/send-otp", data);
