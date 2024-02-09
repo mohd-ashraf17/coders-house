@@ -20,7 +20,7 @@ const server = app.listen(PORT, () => console.log(`running on PORT ${PORT}`));
 // sockets
 const io = require('socket.io')(server, {
     cors: {
-        origin: process.env.FRONTEND_URL,
+        origin: 'https://coders-house.vercel.app',
         methods: ['GET', 'POST'],
     },
 });
