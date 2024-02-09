@@ -7,8 +7,6 @@ const api = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-  withCredentials: true,
-  credentials: 'same-origin',
 });
 // axios.defaults.withCredentials = true;
 
