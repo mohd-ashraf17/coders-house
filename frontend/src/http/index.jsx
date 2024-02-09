@@ -1,13 +1,14 @@
 import axios from "axios";
 
 const api = axios.create({
-  withCredentials: true,
+  // withCredentials: true,
   baseURL: 'https://coders-house.vercel.app',
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
   },
 });
+axios.defaults.withCredentials = true;
 
 // all endpoint
 export const sendOtp = (data) => api.post("https://coders-house.vercel.app/api/send-otp", data);
