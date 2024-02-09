@@ -13,7 +13,7 @@ app.use(cookieParser())
 //     origin: ['http://localhost:5173']
 // }
 // app.use(cors(corsOption))
-app.use(cors({ credentials: 'true', origin: "https://coders-house.vercel.app" }));
+app.use(cors({ credentials: 'true', origin: ['https://coders-house.vercel.app', 'https://coders-house.vercel.app'] }));
 app.use(express.json({ limit: '10mb' }))
 app.use(Router)
 const server = app.listen(PORT, () => console.log(`running on PORT ${PORT}`));
