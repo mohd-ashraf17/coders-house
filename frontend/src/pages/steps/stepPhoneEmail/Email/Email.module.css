@@ -1,7 +1,14 @@
-.paragraph{
+.paragraph {
     width: 70%;
     margin: 0 auto;
 }
-.buttonRapper{
+
+.buttonRapper {
     margin-bottom: 30px;
+}
+
+@media (max-width:500px) {
+    .paragraph {
+        font-size: 13px;
+    }
 }

@@ -28,3 +28,17 @@
         font-size: 1rem;
     }
 }
+
+@media (max-width:450px) {
+    .navRight h2 {
+        font-size: .8rem;
+    }
+
+    .avatar {
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #0077ff;
+        margin: 0 7px;
+        margin-right: 0;
+    }
+}

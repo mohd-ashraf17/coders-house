@@ -16,8 +16,8 @@ const AddRoomModel = ({ onClose }) => {
     try {
       const accessToken = localStorage.getItem("accessToken");
       const { data } = await create({ topic, roomType, accessToken });
-      console.log(data);
-      navigate(`/room/${data._id}`);
+      // console.log(data);
+      // navigate(`/room/${data._id}`);
     } catch (err) {
       console.log(err);
     }

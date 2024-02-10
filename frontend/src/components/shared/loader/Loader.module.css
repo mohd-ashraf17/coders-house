@@ -1,6 +1,15 @@
-.message{
-    margin-top: 10rem;
+.message {
+    margin: 5rem 4rem 0 4rem;
 }
-.cardRapper{
-    margin-top: 0;
+
+@media (max-width:500px) {
+    .message {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:425px) {
+    .message {
+        margin: 5rem 2rem 0 2rem;
+    }
 }

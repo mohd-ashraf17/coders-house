@@ -91,3 +91,17 @@
     right: 3px;
     background: none;
 }
+
+@media (max-width:634px) {
+    .modalHeader h3 {
+        font-size: 15px;
+    }
+
+    .subHeading {
+        font-size: 15px;
+    }
+
+    .modalFutter h2 {
+        font-size: 15px;
+    }
+}

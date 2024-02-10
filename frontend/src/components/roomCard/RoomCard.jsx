@@ -22,7 +22,7 @@ const RoomCard = ({ room }) => {
               <img
                 className={style.avatarImage}
                 key={speacker._id}
-                src={speacker.avatar}
+                src={speacker.avatar ? speacker.avatar : "/images/monkey-avatar.png"}
                 alt="speacker"
               />
             ))}

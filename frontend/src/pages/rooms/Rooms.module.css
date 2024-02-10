@@ -73,10 +73,20 @@
     margin-top: 60px;
 }
 
+@media (max-width:1000px) {
+    .roomList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 715px) {
     .left {
         flex-direction: column-reverse;
         align-items: flex-start;
+    }
+
+    .roomList {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .searchBox {
@@ -88,6 +98,29 @@
 @media (max-width: 580px) {
     .searchBox {
         width: 200px;
+        padding: 0 5px;
+    }
+}
+
+@media (max-width:465px) {
+    .roomList {
+        gap: 15px;
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width:420px) {
+    .startRoomButton span {
+        font-size: 12px;
+    }
+
+    .heading {
+        font-size: 15px;
+    }
+
+    .searchBox {
+        width: 140px;
         padding: 0 5px;
     }
 }

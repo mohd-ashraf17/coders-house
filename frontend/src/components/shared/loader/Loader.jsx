@@ -5,8 +5,11 @@ import style from "./Loader.module.css";
 const Loader = ({ message }) => {
   return (
     <>
-      <div className={style.cardRappe}>
+      <div className={style.cardRapper}>
         <Card>
+        <div>
+            Loading...
+          </div>
           <h2 className={style.message}>{message}</h2>
         </Card>
       </div>

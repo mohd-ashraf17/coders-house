@@ -1,12 +1,20 @@
-.text{
+.text {
     font-size: 22px;
     line-height: 1.5;
     color: #C4C5C5;
     margin-bottom: 30px;
 }
-.signInRapper{
+
+.signInRapper {
     margin-top: 20px;
 }
-.hasInvite{
+
+.hasInvite {
     color: #0077ff;
+}
+
+@media (max-width:500px) {
+    .text {
+        font-size: 13px;
+    }
 }
