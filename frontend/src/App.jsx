@@ -12,14 +12,14 @@ import Authenticate from "./pages/authenticate/Authenticate";
 import Activate from "./pages/activate/Activate";
 import Rooms from "./pages/rooms/Rooms";
 import Room from "./pages/room/Room";
-import Loader from "./components/shared/loader/Loader";
+import MainLoader from "./components/shared/mainLoader/mainLoader";
 import { useSelector } from "react-redux";
 import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
 
 const App = () => {
   const { loading } = useLoadingWithRefresh();
   return loading ? (
-    <Loader message="Loading, Please wait..." />
+    <MainLoader message="Loading, Please wait..." />
   ) : (
     <Router>
       <Navigation></Navigation>

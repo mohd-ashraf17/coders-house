@@ -18,6 +18,7 @@ const AddRoomModel = ({ onClose }) => {
       const { data } = await create({ topic, roomType, accessToken });
       // console.log(data);
       // navigate(`/room/${data._id}`);
+      location.reload();
     } catch (err) {
       console.log(err);
     }

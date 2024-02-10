@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { setAuth } from "../store/authSlice";
 
 export const useLoadingWithRefresh = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);    
   const dispatch = useDispatch();
   useEffect(() => {
     (async () => {

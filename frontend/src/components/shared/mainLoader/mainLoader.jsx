@@ -1,11 +1,11 @@
 import React from "react";
+import style from "./mainLoader.module.css";
 import Card from "../card/Card";
-import style from "./Loader.module.css";
 
-const Loader = ({ message }) => {
+const mainLoader = ({ message }) => {
   return (
     <>
-      <div className={style.cardRapper}>
+      <div className="cardRapper">
         <Card>
           <div>Loading...</div>
           <h2 className={style.message}>{message}</h2>
@@ -15,4 +15,4 @@ const Loader = ({ message }) => {
   );
 };
 
-export default Loader;
+export default mainLoader;
