@@ -21,7 +21,8 @@ const Room = () => {
   }, [ismute]);
   useEffect(() => {
     (async () => {
-      const { data } = await getRoom(roomId);
+      const accessToken = localStorage.getItem("accessToken");
+      const { data } = await getRoom(roomId, { accessToken });
       setRoom((prev) => data);
     })();
   }, [roomId]);
@@ -63,7 +64,11 @@ const Room = () => {
                   ></audio>
                   <img
                     className={style.userAvatar}
-                    src={client.avatar}
+                    src={
+                      client.avatar
+                        ? client.avatar
+                        : "/images/monkey-avatar.png"
+                    }
                     alt="avatar"
                   />
                   <button

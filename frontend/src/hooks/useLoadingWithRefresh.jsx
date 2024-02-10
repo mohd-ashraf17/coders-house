@@ -9,8 +9,12 @@ export const useLoadingWithRefresh = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get("https://coders-house.vercel.app/api/refresh");
+        const refreshToken = localStorage.getItem("refreshToken")
+        const accessToken = localStorage.getItem("accessToken")
+        const { data } = await axios.get("https://coders-house.vercel.app/api/refresh", { refreshToken, accessToken });
         dispatch(setAuth(data));
+        localStorage.setItem("refreshToken", data.newRefreshToken)
+        localStorage.setItem("accessToken", data.newAccesToken)
         setLoading(false);
       } catch (err) {
         console.log(err);

@@ -69,35 +69,36 @@ class authController {
             return res.status(500).json({ message: "db error" });
         }
 
-        const { accesToken, refreshToken } = await JwtService.signToken({ _id: user._id, activated: user.activated });
-        await jwtService.storeToken(refreshToken, user._id)
+        const { newAccesToken, newRefreshToken } = await JwtService.signToken({ _id: user._id, activated: user.activated });
+        await jwtService.storeToken(newRefreshToken, user._id)
 
-        res.cookie('refreshToken', refreshToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true
-        })
-        res.cookie('accesToken', accesToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true
-        })
+        // res.cookie('refreshToken', refreshToken, {
+        //     maxAge: 1000 * 60 * 60 * 24 * 30,
+        //     httpOnly: true
+        // })
+        // res.cookie('accesToken', accesToken, {
+        //     maxAge: 1000 * 60 * 60 * 24 * 30,
+        //     httpOnly: true
+        // })
         const userDto = new UserDto(user)
-        return res.json({ user: userDto, auth: true })
+        return res.json({ user: userDto, auth: true, newAccesToken, newRefreshToken })
 
     }
     async refresh(req, res) {
         // get refresh token fron cookie
-        const { refreshToken: refreshTokenFromCookie } = req.cookies;
+        // const { refreshToken: refreshTokenFromCookie } = req.cookies;
+        const { accessToken, refreshToken } = req.body;
         // check if token is valid
         let userData
         try {
-            userData = await jwtService.verifyRefreshToken(refreshTokenFromCookie);
+            userData = await jwtService.verifyRefreshToken(refreshToken);
         } catch (err) {
             return res.status(401).json({ message: 'invalid token' });
         }
         // check if token is in db
         let token;
         try {
-            token = await jwtService.findRefreshToken(userData._id, refreshTokenFromCookie)
+            token = await jwtService.findRefreshToken(userData._id, refreshToken)
             if (!token) {
                 return res.status(401).json({ message: 'internal error' })
             }
@@ -110,34 +111,35 @@ class authController {
             return res.status(404).json({ message: 'no user' })
         }
         // generate new tokens
-        const { accesToken, refreshToken } = jwtService.signToken({ _id: user._id });
+        const { newAccesToken, newRefreshToken } = jwtService.signToken({ _id: user._id });
         // set tokens in cookie
         try {
-            await jwtService.updateRefreshToken(user._id, refreshToken);
+            await jwtService.updateRefreshToken(user._id, newRefreshToken);
         } catch (err) {
             return res.status(500).json({ message: 'internal error' })
         }
         // add in cookie
-        res.cookie('refreshToken', refreshToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true
-        })
-        res.cookie('accesToken', accesToken, {
-            maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true
-        })
+        // res.cookie('refreshToken', refreshToken, {
+        //     maxAge: 1000 * 60 * 60 * 24 * 30,
+        //     httpOnly: true
+        // })
+        // res.cookie('accesToken', accesToken, {
+        //     maxAge: 1000 * 60 * 60 * 24 * 30,
+        //     httpOnly: true
+        // })
         // send response
         const userDto = new UserDto(user)
-        return res.json({ user: userDto, auth: true })
+        return res.json({ user: userDto, auth: true, newRefreshToken, newAccesToken })
     }
 
     async logout(req, res) {
         // delete refresh token
-        const { refreshToken } = req.cookies;
+        // const { refreshToken } = req.cookies;
+        const { accessToken, refreshToken } = req.body;
         await jwtService.deleteRefreshToken(refreshToken);
         // delete cookie
-        res.clearCookie("refreshToken")
-        res.clearCookie("accesToken")
+        // res.clearCookie("refreshToken")
+        // res.clearCookie("accesToken")
         return res.json({ user: null, auth: false })
     }
 

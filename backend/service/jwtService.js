@@ -4,15 +4,15 @@ const jwt = require('jsonwebtoken');
 
 class JwtService {
     signToken(payload) {
-        const accesToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
+        const newAccesToken = jwt.sign(payload, process.env.JWT_ACCESS_SECRET, {
             expiresIn: '1m'
         })
 
-        const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {
+        const newRefreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {
             expiresIn: '1y'
         })
 
-        return { accesToken, refreshToken }
+        return { newAccesToken, newRefreshToken }
     }
 
     async verifyToken(token) {

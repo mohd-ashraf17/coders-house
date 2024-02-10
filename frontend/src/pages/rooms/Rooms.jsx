@@ -9,7 +9,9 @@ const Rooms = () => {
   const [rooms, setRooms] = useState([]);
   useEffect(() => {
     (async () => {
-      const { data } = await getAllRooms();
+      const refreshToken = localStorage.getItem("refreshToken");
+      const accessToken = localStorage.getItem("accessToken");
+      const { data } = await getAllRooms({ refreshToken, accessToken });
       console.log(data);
       setRooms(data);
     })();

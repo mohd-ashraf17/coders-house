@@ -7,8 +7,10 @@ import { verifyOtp } from "../../../http";
 import { useSelector } from "react-redux";
 import { setAuth } from "../../../store/authSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StepOTP = () => {
+  const navigate = useNavigate()
   const [otp, setOtp] = useState("");
   const { email, hash } = useSelector((state) => state.auth.otp);
   const dispatch = useDispatch();
@@ -18,8 +20,11 @@ const StepOTP = () => {
       return;
     }
     const { data } = await verifyOtp({ email, hash, otp});
-    console.log(data)
+    // console.log(data)
+    localStorage.setItem('refreshToken', data.newRefreshToken);
+    localStorage.setItem('accessToken', data.newAccesToken);
     dispatch(setAuth(data));
+    navigate("/activate")
   };
   return (
     <>

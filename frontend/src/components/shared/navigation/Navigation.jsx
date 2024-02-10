@@ -21,7 +21,13 @@ const Navigation = () => {
   };
   const logoutUser = async () => {
     try {
-      const { data } = await logout();
+      const refreshToken = localStorage.getItem('refreshToken')
+      const accessToken = localStorage.getItem('accessToken')
+      const { data } = await logout({ refreshToken, accessToken });
+      // localStorage.setItem('refreshToken', data.newRefreshToken)
+      // localStorage.setItem('accessToken', data.newAccesToken)
+      localStorage.clear('refreshToken')
+      localStorage.clear('accessToken')
       dispatch(setAuth(data));
     } catch (err) {
       console.log(err);

@@ -25,7 +25,8 @@ const StepAvatar = () => {
   const submit = async () => {
     setLoading(true);
     try {
-      const { data } = await activate({ name, avatar });
+      const accessToken = localStorage.getItem('accessToken')
+      const { data } = await activate({ name, avatar, accessToken });
       if (data.user) {
         dispatch(setAuth(data));
       }

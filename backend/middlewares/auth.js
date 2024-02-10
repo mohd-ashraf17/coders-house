@@ -2,11 +2,12 @@ const JwtService = require('../service/jwtService')
 
 const auth = async (req, res, next) => {
     try{
-        const { accesToken } = req.cookies;
-        if(!accesToken) {
+        // const { accesToken } = req.cookies;
+        const { accessToken } = req.body;
+        if(!accessToken) {
             throw new error()
         }
-        const userData = await JwtService.verifyToken(accesToken);
+        const userData = await JwtService.verifyToken(accessToken);
         req.user = userData;
         next()
     }catch(err) {
