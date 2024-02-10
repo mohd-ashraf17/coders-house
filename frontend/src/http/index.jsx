@@ -38,7 +38,7 @@ api.interceptors.response.use(
       try {
         const refreshToken = localStorage.getItem("refreshToken");
         const accessToken = localStorage.getItem("accessToken");
-        await axios.get("https://coders-house.vercel.app/api/refresh", {
+        await axios.post("https://coders-house.vercel.app/api/refresh", {
           refreshToken,
           accessToken,
         });

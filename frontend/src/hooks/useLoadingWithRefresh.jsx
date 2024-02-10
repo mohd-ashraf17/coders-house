@@ -11,7 +11,7 @@ export const useLoadingWithRefresh = () => {
       try {
         const refreshToken = localStorage.getItem("refreshToken")
         const accessToken = localStorage.getItem("accessToken")
-        const { data } = await axios.get("https://coders-house.vercel.app/api/refresh", { refreshToken, accessToken });
+        const { data } = await axios.post("https://coders-house.vercel.app/api/refresh", { refreshToken, accessToken });
         dispatch(setAuth(data));
         localStorage.setItem("refreshToken", data.newRefreshToken)
         localStorage.setItem("accessToken", data.newAccesToken)
