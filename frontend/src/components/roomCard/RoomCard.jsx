@@ -6,9 +6,10 @@ const RoomCard = ({ room }) => {
   return (
     <>
       <div
-        // onClick={() => {
-        //   navigate(`/room/${room._id}`);
-        // }}
+        onClick={() => {
+          // navigate(`/room/${room._id}`);
+          alert("we are working on this component. Please try again after some time!")
+        }}
         className={style.card}
       >
         <div className={style.topic}>{room.topic}</div>
